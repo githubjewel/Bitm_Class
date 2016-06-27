@@ -1,5 +1,6 @@
 package com.acrophillic.mylistview;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,25 +22,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        final ArrayList<String> names = new ArrayList<>();
-
-        names.add("Forhad");
-        names.add("Fahim");
-        names.add("koushik");
-        names.add("Tushin");
-
         sampleListView= (ListView) findViewById(R.id.nameListView);
-        ArrayAdapter mAdapter =new ArrayAdapter(this,R.layout.myowndesign, R.id.nameTextView,names);
-        sampleListView.setAdapter(mAdapter);
+
+        final ArrayList<Poet> poets = new ArrayList<>();
+        poets.add(new Poet("Jasim Uddin","60","Faridpur"));
+        poets.add(new Poet("Rabindranath Thakur","70","Calcutta"));
+        poets.add(new Poet("Jibanananda Das","50","Barisal"));
+
+        ArrayAdapter<Poet> myadapter = new ArrayAdapter<Poet>(this,android.R.layout.simple_list_item_1,poets);
+        sampleListView.setAdapter(myadapter);
 
         sampleListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Toast.makeText(MainActivity.this,names.get(i), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, poets.get(i).getPoetName(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(MainActivity.this,Description.class);
+
+                intent.putExtra("name", poets.get(i).getPoetName());
+                intent.putExtra("age", poets.get(i).getPoetAge());
+                intent.putExtra("district", poets.get(i).getPoetDistrict());
+                startActivity(intent);
             }
         });
+
 
     }
 }
