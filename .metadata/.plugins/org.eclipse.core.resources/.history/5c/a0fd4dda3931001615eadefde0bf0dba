@@ -1,0 +1,13 @@
+package demo;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		Smartphone obj = new Smartphone();
+		obj.setBrandName("Nokia");
+		obj.setModelNumber("1100");
+		
+	}
+	
+}

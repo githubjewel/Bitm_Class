@@ -1,0 +1,10 @@
+package demo;
+
+public class Bank {
+
+	private String accountNo;
+	private String customerName;
+	private double balance;
+	
+	
+}

@@ -1,0 +1,9 @@
+package demo;
+
+public class Mobile {
+
+	private String brandName;
+	private String modelNumber;
+	private String type;
+	
+}

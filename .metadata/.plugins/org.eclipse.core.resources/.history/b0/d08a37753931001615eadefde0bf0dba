@@ -1,0 +1,11 @@
+package demo;
+
+public class FeaturedPhone extends Mobile{
+
+	private String os;
+	
+	public String setOs() {
+		
+		return super.setOs();
+	}
+}

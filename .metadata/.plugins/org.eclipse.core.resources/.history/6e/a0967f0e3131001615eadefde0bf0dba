@@ -1,0 +1,22 @@
+package demo;
+
+public class CheckingAccount extends Bank{
+
+	private double charge;
+
+	public double getCharge() {
+		return charge;
+	}
+
+	public void setCharge(double charge) {
+		this.charge = charge;
+	}
+	public String withdraw(double amount) {
+
+		if(super.getBalance()-amount<0){
+		return super.withdraw(amount);
+		}
+		return "not possible";
+	}
+	
+}

@@ -1,0 +1,20 @@
+package demo;
+
+public class Bank {
+
+	private String accountNo;
+	private String customerName;
+	private double balance;
+	
+	public String deposit(double amount){
+		
+		  balance += amount;
+		  return "Successfully Deposited...";
+	}
+	
+	public String withdraw(double amount){
+		
+		balance -= amount;
+		return "Withdraw Successfully completed...";
+	}
+}
