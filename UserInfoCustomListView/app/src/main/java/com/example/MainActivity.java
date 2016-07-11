@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         userListView = (ListView) findViewById(R.id.userListView);
         ArrayList<UserRow> users = UserRow.getAllUser();
 
-        UserAdapter adapter = new UserAdapter(this,users);
+        UserAdapterWithViewHolder adapter = new UserAdapterWithViewHolder(this,users);
         userListView.setAdapter(adapter);
 
         userListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
