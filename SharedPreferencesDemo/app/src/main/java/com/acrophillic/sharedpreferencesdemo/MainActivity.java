@@ -11,8 +11,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView;
     EditText editText;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
+    SharedPreference obj;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,20 +20,16 @@ public class MainActivity extends AppCompatActivity {
 
         textView = (TextView) findViewById(R.id.textView);
         editText = (EditText) findViewById(R.id.editText);
-        sharedPreferences = getSharedPreferences("Batch-16", MODE_PRIVATE);
-        editor = sharedPreferences.edit();
+        obj = new SharedPreference(this);
     }
 
     public void Save(View view) {
 
-        String saveData = editText.getText().toString().trim();
-        editor.putString("message", saveData);
-        editor.commit();
+        obj.saveData(editText.getText().toString().trim());
     }
 
     public void Retrive(View view) {
 
-        String showData = sharedPreferences.getString("message","Data Not Found...");
-        textView.setText(showData);
+        textView.setText(obj.getData());
     }
 }
